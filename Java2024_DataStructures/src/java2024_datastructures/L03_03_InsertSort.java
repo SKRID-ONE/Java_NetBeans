@@ -198,13 +198,13 @@ public class L03_03_InsertSort {
         ar_2.insert(9);
         ar_2.insert(5);
         ar_2.insert(5);
-//        ar_2.insert(9);
-//        ar_2.insert(2);
-//        ar_2.insert(4);
-//        ar_2.insert(5);
-//        ar_2.insert(5);
-//        ar_2.insert(5);
-//        ar_2.insert(3);
+        ar_2.insert(9);
+        ar_2.insert(2);
+        ar_2.insert(4);
+        ar_2.insert(5);
+        ar_2.insert(5);
+        ar_2.insert(5);
+        ar_2.insert(3);
 
 
 
@@ -224,7 +224,7 @@ public class L03_03_InsertSort {
         ar_2.display();
 //        System.out.println("Медиана массива: "+ar_2.median());
         
-//        ar_2.noDups();
+////        ar_2.noDups();
 //        ar_2.display();
     }
 }
