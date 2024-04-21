@@ -99,7 +99,7 @@ class InsertSort {
             in = out;
             value = a[out];
             
-            //Определение нового места на маркерованного элемента
+            //Определение нового места для маркерованного элемента
             // in>0 чтобы не выйти за пределы массива
             while (in>0 && a[in-1]>=value) {
                 a[in] = a[in-1];
@@ -108,9 +108,7 @@ class InsertSort {
                 nSwap++;
             }
             //Вставляем маркерованный элемент на новое место
-            if(a[in]==value){
-                //
-            }else{
+            if(a[in]!=value){
                 a[in] = value;
                 nSwap++;
             }
@@ -152,38 +150,35 @@ class InsertSort {
     //3.3***********************************************************************
     
     //Задание 3.6 - Удаление дубликатов сортировкой вставки*********************
-    
-    
     public void insertSortNoDups() {
-        int in, out;
+        int out, in;
         long value;
-
-        
-        for (out = 1; out<nElems; out++) {          //Внешний маркер
-            value = a [out];
-            
-            //Определение нового места
+        int nDups = 0;
+        for (out = 1; out<nElems; out++) {  //Маркер начинается с 1, все что до маркера - частично отсортированно
             in = out;
-            int k=0;
+            value = a[out];                 //Маркерованный элемент, которому нужно найти место в частично отсортированном масиве
+            
             while (in>0 && a[in-1]>=value) {
                 
-                if (a[in-1] == value){
-////                    ДОДЕЛАТЬ
-////                    System.out.println(a[in-1]+" is having dups");
-////                    a[in] = a[in-2];
-////                    break;
-                } else {
-                    a[in] = a[in-1];
+                //Проверка на дубликат:
+                if (a[in-1]==value) {       
+                    if (a[in-1]!= -1){      //Чтобы не считал -1, которые уже есть
+                        value = -1;         //Если значение уже есть, присваивается -1
+                        nDups++;            //Увеличивается счётчик дубликатов, чтобы потом сместить массив
+                    }
                 }
+                                            //Далее адгоритм обычный сортировки методом вставки
+                a[in] = a [in-1];
                 in--;
             }
-            a [in] = value;
-            
-            if (k>0){
-                System.out.println(a[in]+": " +k);
-            }
+            a[in] = value;
         }
-    
+                                            //Итого первые nDups элементов будут = -1 (по количеству дубликатов)
+        System.out.println("nDups: "+nDups);
+        for (int i = 0; i<nElems-nDups; i++) {    //Сдвиг массива на nDups
+            a[i] = a[i+nDups];
+        }
+        nElems-=nDups;                      //Уменьшение размера массива на nDups
     }
     //3.6***********************************************************************
 }
@@ -194,8 +189,8 @@ public class L03_03_InsertSort {
         InsertSort ar_2 = new InsertSort(maxSize);
         
         ar_2.insert(9);
-        ar_2.insert(9);
-        ar_2.insert(9);
+        ar_2.insert(5);
+        ar_2.insert(5);
         ar_2.insert(5);
         ar_2.insert(5);
         ar_2.insert(9);
@@ -207,7 +202,7 @@ public class L03_03_InsertSort {
         ar_2.insert(3);
 
 
-
+//
 //          for (int i = 0; i<maxSize; i++){
 //              long n = (long) (java.lang.Math.random()*(maxSize-1));
 //              ar_2.insert(n);
@@ -224,7 +219,7 @@ public class L03_03_InsertSort {
         ar_2.display();
 //        System.out.println("Медиана массива: "+ar_2.median());
         
-////        ar_2.noDups();
+//        ar_2.noDups();
 //        ar_2.display();
     }
 }
