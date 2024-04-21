@@ -188,25 +188,24 @@ public class L03_03_InsertSort {
         int  maxSize = 100;
         InsertSort ar_2 = new InsertSort(maxSize);
         
-        ar_2.insert(9);
-        ar_2.insert(5);
-        ar_2.insert(5);
-        ar_2.insert(5);
-        ar_2.insert(5);
-        ar_2.insert(9);
-        ar_2.insert(2);
-        ar_2.insert(4);
-        ar_2.insert(5);
-        ar_2.insert(5);
-        ar_2.insert(5);
-        ar_2.insert(3);
+//        ar_2.insert(9);
+//        ar_2.insert(5);
+//        ar_2.insert(5);
+//        ar_2.insert(5);
+//        ar_2.insert(5);
+//        ar_2.insert(9);
+//        ar_2.insert(2);
+//        ar_2.insert(4);
+//        ar_2.insert(5);
+//        ar_2.insert(5);
+//        ar_2.insert(5);
+//        ar_2.insert(3);
 
 
-//
-//          for (int i = 0; i<maxSize; i++){
-//              long n = (long) (java.lang.Math.random()*(maxSize-1));
-//              ar_2.insert(n);
-//          }
+          for (int i = 0; i<maxSize; i++){
+              long n = (long) (java.lang.Math.random()*(maxSize-1));
+              ar_2.insert(n);
+          }
 
 //        for(int i = maxSize-1; i>0; i--){
 //            ar_2.insert(i);
